@@ -66,11 +66,7 @@ a {
 	margin:0;
 	padding:0;
 }
-.fbg_resize {
-	margin:0 auto;
-	padding:0 40px;
-	width:890px;
-}
+
 .header {
 	background-color:#4d5152;
 }
@@ -233,10 +229,13 @@ ul.ex_menu li a:hover {
 	float:left;
 }
 .fbg_resize {
-	padding:24px 40px;
+    width:890px;
+    margin:0 auto;
+    padding: 0 40px;
+    height: 314px;
 	color:#fff;
 	/*background:#b1531f url(images/fbg_bg.gif) repeat-x top;*/
-    background:#b1531f url(images/bgGreen.png) repeat-x top;
+    background: url(images/bgGreen.png) repeat-x top;
 }
 .fbg h2 {
 	color:#fff;
@@ -327,4 +326,18 @@ ol li textarea {
 }
 ol li .send {
 	margin:16px 0 0 0;
+}
+.mapa {
+    position:absolute;
+    border:1px solid #3da30a;
+    width: 500px;
+    height: 220px
+}
+.menu_nav ul li span {
+    display:block;
+    margin:0;
+    padding:16px 24px;
+    color:#fff;
+    text-decoration:none;
+    font-size:15px;
 }

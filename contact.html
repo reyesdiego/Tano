@@ -8,6 +8,31 @@
     <script type="text/javascript" src="js/cufon-yui.js"></script>
     <script type="text/javascript" src="js/arial.js"></script>
     <script type="text/javascript" src="js/cuf_run.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK3emOGfmVdgInL5uIRphlE_egdxOEBXo&callback=initMap">
+    </script>
+    <script type="application/javascript" >
+        function initMap() {
+            var uluru = {lat: -34.652939, lng: -58.621123};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru,
+                mapTypeControl: false
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+            var contentString = '<div style="color:black" ><img src="images/estudio.png" style="width: 92px"/><div>Av. Belgrano 404<br/>Moron - Buenos Aires - B17081FJ</div></div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
 </head>
 <body>
 <!-- START PAGE SOURCE -->
@@ -23,6 +48,7 @@
           <li><a href="clientes.html">Clientes</a></li>
           <li><a href="FACs.html">FACs</a></li>
           <li class="active"><a href="contact.html">Contáctenos</a></li>
+          <li><span>+54 (11) 4629-3619</span></li>
         </ul>
       </div>
       <div class="clr"></div>
@@ -84,28 +110,16 @@
   <div class="fbg">
     <div class="fbg_resize">
       <div class="col c1">
-        <h2><span>Image Gallery</span></h2>
-        <a href="#"><img src="images/pix1.jpg" width="92" height="92" alt="" /></a>
-        <a href="#"><img src="images/pix2.jpg" width="92" height="92" alt="" /></a>
-        <a href="#"><img src="images/pix3.jpg" width="92" height="92" alt="" /></a>
+        <h2><span>Aqui estamos</span></h2>
+        <div id="map" class="mapa" ></div>
+        <div style="font-size: 14px; height: 220px; width: 450px; padding-left: 530px; ">
+          <b style="font-size: 16px;">Direccion</b><br/>Av. Belgrano 404<br/>Moron - Buenos Aires - B17081FJ<br/><br/>
+          <!--<b style="font-size: 16px;">Telefono</b><br/>--><span style="font-size: 22px;">+54 (11) 4629-3619</span><br/><br/>
+          <a style="font-size: 22px;" href="#">wapietrandrea@yahoo.com.ar</a>
+        </div>
       </div>
-      <div class="col c2">
-        <h2><span>About</span></h2>
-        <img src="images/white.jpg" width="92" height="92" alt="" />
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Donec mattis, purus nec placerat bibendum. <a href="#">Learn more...</a></p>
-      </div>
-      <div class="col c3">
-        <h2>Contacto</h2>
-        <p><b>Direccion</b></p>
-        <p>Av. Belgrano 404</p>
-        <p>Moron - Buenos Aires - B17081FJ</p>
-        <p><b>Telefonos</b></p>
-        <p>+54 (11) 4629-3619<br />
-
-        <p><a href="#">wapietrandrea@yahoo.com.ar</a></p>
-      </div>
-      <div class="clr"></div>
     </div>
+
   </div>
   <div class="footer">
     <div class="footer_resize">
