@@ -182,8 +182,8 @@ a {
 }
 ul.sb_menu, ul.ex_menu {
 	margin:0;
-	padding:0;
-	list-style:none;
+	padding:18px;
+	/*list-style:none;*/
 	color:#524a3e;
 }
 ul.sb_menu li, ul.ex_menu li {
@@ -194,26 +194,46 @@ ul.sb_menu li {
 	width:220px;
     font-size:14px;
 }
+ul.sb_article {
+    padding-left:18px;
+    font-size: 12px
+}
+ul.sb_article li {
+    font-size: 12px
+}
+ul.sb_article li span {
+    font-size: 14px
+}
 ul.ex_menu li {
 	padding:4px 0 8px 12px;
+}
+ul.sb_menu li, ul.ex_menu li{
+    font-size: 12px;
+    color:#524a3e;
+    text-decoration:none;
+    /*margin-left:-8px;*/
+    /*padding-left:8px;*/
+    /*background:url(images/li.gif) no-repeat left center;*/
 }
 ul.sb_menu li a, ul.ex_menu li a {
 	color:#524a3e;
 	text-decoration:none;
+    font-size: 14px;
 	margin-left:-8px;
-	padding-left:8px;
-	background:url(images/li.gif) no-repeat left center;
+	/*padding-left:-8px;*/
+	/*background:url(images/li.gif) no-repeat left center;*/
 }
 ul.sb_menu li a:hover, ul.ex_menu li a:hover {
-	color:#b75024;
-	font-weight:bold;
-	background:url(images/li_a.gif) no-repeat left center;
+	/*color:#b75024;*/
+    color: #3da30a;
+	/*font-weight:bold;*/
+	/*background:url(images/li_a.gif) no-repeat left center;*/
 }
 ul.sb_menu li a:hover {
 	text-decoration:underline;
 }
-ul.sb_menu li.active {
-	color:red;
+ul.sb_menu li.active a{
+	color: #3da30a;
 }
 ul.ex_menu li a:hover {
 	text-decoration:none;
