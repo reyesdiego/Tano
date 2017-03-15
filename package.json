@@ -1,0 +1,23 @@
+{
+  "name": "tano",
+  "version": "1.0.0",
+  "description": "Pagina Estudio Pietrandrea",
+  "main": "index.js",
+  "dependencies": {
+    "emailjs": "^1.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reyesdiego/Tano.git"
+  },
+  "author": "Diego Reyes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reyesdiego/Tano/issues"
+  },
+  "homepage": "https://github.com/reyesdiego/Tano#readme"
+}
