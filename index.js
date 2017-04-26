@@ -29,7 +29,6 @@ app.get('/', function(req, res){
 app.post('/sendMail', function (req, res, next) {
     var form = req.body;
 
-    console.log("FORM %j", form);
     var gmail = {
         user:	"pietrandrea2000@gmail.com",
         password: "belg4444",
@@ -37,22 +36,26 @@ app.post('/sendMail', function (req, res, next) {
         ssl: true
     };
 
-    var email 	= require("emailjs");
-    var server 	= email.server.connect(gmail);
+    if (form.message === undefined || form.message === "") {
+        res.end();
+    } else {
+        var email 	= require("emailjs");
+        var server 	= email.server.connect(gmail);
 
-    var message	= {
-        text: form.text,
-        from: "Estudio Pietrandrea <pietrandrea2000@gmail.com>",
-        to: form.email,
-        subject: "Consulta Estudio Pietrandrea",
-        attachment:
-            [
-                {data: "<html><p>"+form.name+"</p><p>"+form.message+"</p><p>"+form.telefono+"</p></html>", alternative:true}
-            ]
-    };
-    server.send(message, function(err, message) { console.log(err || message); });
+        var message	= {
+            text: form.text,
+            from: "Estudio Pietrandrea <pietrandrea2000@gmail.com>",
+            to: form.email,
+            subject: "Consulta Estudio Pietrandrea",
+            attachment:
+                [
+                    {data: "<html><p>"+form.name+"</p><p>"+form.message+"</p><p>"+form.telefono+"</p></html>", alternative:true}
+                ]
+        };
+        server.send(message, function(err, message) { console.log(err || message); });
 
-    res.sendFile(path.join(__dirname + '/contact.html'));
+        res.sendFile(path.join(__dirname + '/contact.html'));
+    }
 });
 
 app.listen(8080);

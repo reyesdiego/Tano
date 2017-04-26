@@ -5,9 +5,12 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="Estudio Juridico">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="runnable.css" rel="stylesheet" />
     <script type="text/javascript" src="js/cufon-yui.js"></script>
     <script type="text/javascript" src="js/arial.js"></script>
     <script type="text/javascript" src="js/cuf_run.js"></script>
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCK3emOGfmVdgInL5uIRphlE_egdxOEBXo&callback=initMap">
     </script>
@@ -34,6 +37,54 @@
             });
         }
     </script>
+    <script>
+
+  // When the browser is ready...
+  $(function() {
+
+    // Setup form validation on the #register-form element
+    $("#register-form").validate({
+
+      // Specify the validation rules
+      rules: {
+        name: "required",
+        email: {
+          required: true,
+          email: true
+        },
+        telefono: {
+          required: true,
+          minlength: 8
+        },
+        message: {
+          required: true,
+          minlength: 10
+        }
+      },
+
+      // Specify the validation error messages
+      messages: {
+        name: "Por favor ingrese un Nombre y Apellido",
+        telefono: {
+          required: "Por favor ingresar un teléfono",
+          minlength: "El teléfono debe tener al menos 8 números"
+        },
+        email: "Por favor ingrese un email válido",
+        message: {
+          required: "Por favor ingresar una consulta",
+          minlength: "La consulta al menos debe tener 10 letras"
+        },
+      },
+
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+
+  });
+
+</script>
+
 </head>
 <body>
 <!-- START PAGE SOURCE -->
@@ -63,7 +114,7 @@
           <h2><span>Contáctenos</span></h2>
           <div class="clr"></div>
           <!--<form action="/sendMail" method="post" enctype="multipart/form-data">-->
-            <form action="/sendMail" method="post">
+            <form id="register-form" action="/sendMail" method="post" novalidate="novalidate">
             <ol>
               <li>
                 <label for="name">Nombre y Apellido</label>
