@@ -44,7 +44,7 @@ app.post('/sendMail', function (req, res, next) {
 
         var message	= {
             text: form.text,
-            from: "Estudio Pietrandrea <pietrandrea2000@gmail.com>",
+            from: "Estudio Pietrandrea <noreply@gmail.com>",
             to: form.email,
             subject: "Consulta Estudio Pietrandrea",
             attachment:
