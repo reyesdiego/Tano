@@ -9,13 +9,25 @@ var gmail = {
     ssl: true
 };
 
+
+var gmail = {
+    user:	"pietra",
+    password: "PIE794ar",
+    host:	"mail.pietrandrea.com.ar",
+    ssl: false,
+    tls: {ciphers: "SSLv3"}
+
+};
+
+
 var email 	= require("emailjs");
 var server 	= email.server.connect(gmail);
 
 var message	= {
     text:	"i hope this works",
-    from:	"pietrandrea2000@gmail.com",
+    from:	"pietra@pietrandrea.com.ar",
     to:		"reyesdiego@hotmail.com",
+    bcc: "pietra@pietrandrea.com.ar",
     subject:	"testing emailjs",
     attachment:
         [

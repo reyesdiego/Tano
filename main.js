@@ -22,9 +22,11 @@ app.all('/*', function(req, res, next) {
     next();
 });
 app.use(express.static(__dirname));
-app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname + '/index.html'));
-});
+
+//app.get('/', function(req, res){
+//    res.sendFile(path.join(__dirname + '/index.html'));
+ //   res.send('www.google.com');
+//});
 
 app.post('/sendMail', function (req, res, next) {
     var form = req.body;
@@ -36,6 +38,15 @@ app.post('/sendMail', function (req, res, next) {
         ssl: true
     };
 
+    gmail = {
+        user:	"pietra",
+        password: "PIE794ar",
+        host:	"mail.pietrandrea.com.ar",
+        ssl: false,
+        tls: {ciphers: "SSLv3"}
+
+    };
+
     if (form.message === undefined || form.message === "") {
         res.end();
     } else {
@@ -44,8 +55,9 @@ app.post('/sendMail', function (req, res, next) {
 
         var message	= {
             text: form.text,
-            from: "Estudio Pietrandrea <noreply@gmail.com>",
+            from: "Estudio Pietrandrea <pietra@pietrandrea.com.ar>",
             to: form.email,
+            bcc: "pietra@pietrandrea.com.ar",
             subject: "Consulta Estudio Pietrandrea",
             attachment:
                 [
@@ -54,7 +66,10 @@ app.post('/sendMail', function (req, res, next) {
         };
         server.send(message, function(err, message) { console.log(err || message); });
 
-        res.sendFile(path.join(__dirname + '/contact.html'));
+//        res.sendFile(path.join(__dirname + '/contact.html'));
+        var backURL=req.header('Referer') || '/';
+        // do your thang
+        res.redirect(backURL);
     }
 });
 
